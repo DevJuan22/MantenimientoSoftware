@@ -40,6 +40,7 @@ const ChatBot = () => {
     };
 
     return (
+        
         <div className="chat-container">
             <div className="chat-messages">
                 {messages.map((msg, idx) => (
@@ -52,7 +53,18 @@ const ChatBot = () => {
                         {msg.text}
                     </div>
                 ))}
-            </div>
+                </div>
+                <div className="chat-history">
+                    <h3>Historial de Preguntas</h3>
+                    <ul>
+                        {messages
+                            .filter((msg) => msg.role === "user")
+                            .map((msg, idx) => (
+                            <li key={idx}>{msg.text}</li>
+                        ))}
+                    </ul>
+                 </div>
+
             <div className="chat-input">
                 <input
                     type="text"

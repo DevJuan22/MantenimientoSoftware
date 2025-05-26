@@ -12,6 +12,13 @@ const ChatBot = () => {
             .get("http://localhost:5000/api/chats")
             .then((res) => setChats(res.data))
             .catch((err) => console.error(err));
+    
+        setMessages([
+            {
+                role: "bot",
+                text: "¡Hola! Soy tu asistente virtual, ¿en qué puedo ayudarte?",
+            },
+        ]);
     }, []);
 
     const handleChat = () => {

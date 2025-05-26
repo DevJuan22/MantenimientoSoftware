@@ -54,6 +54,9 @@ const ChatBot = () => {
                     </div>
                 ))}
                 </div>
+                <div className="question-counter">
+                    <p>Total de preguntas realizadas: {messages.filter(msg => msg.role === "user").length}</p>
+                </div>
                 <div className="chat-history">
                     <h3>Historial de Preguntas</h3>
                     <ul>

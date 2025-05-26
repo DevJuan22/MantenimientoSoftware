@@ -1,3 +1,7 @@
+// HU01 - Funcionalidad para que el administrador agregue preguntas y respuestas al chatbot.
+
+
+
 import React, {useState} from "react";
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
@@ -10,6 +14,10 @@ const AddQuestion = () => {
     const handleSubmit = async(e) =>{
         e.preventDefault()
         try{
+            if (!question.trim() || !answer.trim()) {
+                alert("Ambos campos son obligatorios");
+                return;
+            }            
             await axios.post("http://localhost:5000/api/chats/add", {question, answer})
             alert("Pregunta asignada con exito")
             setQuestion("")
